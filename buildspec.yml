@@ -1,0 +1,13 @@
+version: 0.1
+   
+phases:
+  install:
+    commands:
+      - gem install jekyll jekyll-paginate jekyll-sitemap jekyll-gist
+  build:
+    commands:
+      - echo "******** Building Jekyll site ********"
+      - echo "******** Uploading to S3 ********"
+      - ls -lah
+      - bundle exec jekyll build
+      - aws s3 sync _site/ s3://serverless-tutorials.com/
