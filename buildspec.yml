@@ -9,4 +9,4 @@ phases:
       - echo "******** Building Jekyll site ********"
       - echo "******** Uploading to S3 ********"
       - bundle exec jekyll build
-      - aws s3 sync . s3://serverless-tutorials.com/
+      - aws s3 sync _site/ s3://serverless-tutorials.com/
