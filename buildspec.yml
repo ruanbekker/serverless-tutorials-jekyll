@@ -1,14 +1,13 @@
-version: 0.2
-
+version: 0.1
+   
 phases:
   install:
     commands:
-      - bundle install
+      - gem install jekyll jekyll-watch
   build:
     commands:
-      - JEKYLL_ENV=production bundle exec jekyll build
-
-artifacts:
-  base-directory: '_site'
-  files:
-    - '**/*'
+      - echo "******** Building coming soon page ********"
+      - jekyll build
+      - echo "******** Updating coming soon page to s3 bucket ->  ********"
+      - echo "s3://serverless-tutorials.com"
+      - aws s3 sync _site/ s3://serverless-tutorials.com/
