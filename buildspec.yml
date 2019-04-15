@@ -3,6 +3,7 @@ version: 0.1
 phases:
   install:
     commands:
+      - gem update
       - gem install jekyll jekyll-watch
   build:
     commands:
